@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercury Retrograde Tracker</title>
+<style>
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    background: #191919; 
+    color: #E3E3E3; 
+    padding: 15px; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .card { 
+    background: #222222; 
+    border: 1px solid #2A2A2A; 
+    border-radius: 10px; 
+    padding: 20px; 
+    max-width: 360px; 
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+    text-align: center;
+  }
+  .badge { 
+    display: inline-block; 
+    padding: 5px 12px; 
+    background: #1A2638; 
+    color: #63B3ED; 
+    border-radius: 20px; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    letter-spacing: 1px;
+    margin-bottom: 15px; 
+  }
+  h3 { 
+    color: #FFFFFF; 
+    margin: 0 0 10px 0; 
+    font-size: 1.15rem; 
+  }
+  p { 
+    font-size: 0.9rem; 
+    line-height: 1.5; 
+    color: #B3B3B3; 
+    margin: 0 0 15px 0;
+  }
+  .footer-date { 
+    font-size: 0.7rem; 
+    color: #555555; 
+    border-top: 1px solid #2A2A2A;
+    padding-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="badge">♋ RETROGRADE INTEL</div>
+  <h3 id="phase-title">Scanning Cosmic Coordinates...</h3>
+  <p id="phase-desc">Loading your alignment data for today.</p>
+  <div class="footer-date" id="footer-info">Mercury Retrograde Tracker • 2026</div>
+</div>
+
+<script>
+  const today = new Date();
+  let title = "Not in Retrograde";
+  let desc = "Mercury is moving direct. Communication flows smoothly and plans move forward without delays.";
+  let retrogradeInfo = "Mercury Retrograde Tracker • 2026";
+  
+  // Real Mercury Retrograde 2026 Dates
+  const retrograde1Start = new Date('2026-07-29');
+  const retrograde1End = new Date('2026-08-21');
+  
+  // Phase breakdown for July 29 - Aug 21 retrograde period
+  if (today >= retrograde1Start && today <= retrograde1End) {
+    retrogradeInfo = "In Retrograde: Jul 29 - Aug 21, 2026";
+    
+    if (today >= new Date('2026-07-29') && today <= new Date('2026-07-31')) {
+      title = "Phase 1: Pre-Retrograde Shadow";
+      desc = "Mercury is slowing down before turning retrograde. Expect miscommunications, delayed messages, and tech glitches. Backup your data and double-check important details.";
+    } else if (today >= new Date('2026-08-01') && today <= new Date('2026-08-05')) {
+      title = "Phase 2: Retrograde Begins";
+      desc = "Mercury officially turns retrograde. Review, revise, and reconsider. This is NOT a time to launch new projects—focus on editing and completing what's already started.";
+    } else if (today >= new Date('2026-08-06') && today <= new Date('2026-08-13')) {
+      title = "Phase 3: Peak Retrograde";
+      desc = "Maximum chaos potential. Communication breakdowns are likely. Reunions with old friends or exes may occur. Stay flexible and avoid major decisions.";
+    } else if (today >= new Date('2026-08-14') && today <= new Date('2026-08-21')) {
+      title = "Phase 4: Retrograde Wind Down";
+      desc = "Mercury is preparing to turn direct. Clarity begins returning. Use this time to finalize plans and tie up loose ends before moving forward.";
+    } else if (today > new Date('2026-08-21') && today <= new Date('2026-09-10')) {
+      title = "Phase 5: Shadow Period";
+      desc = "Mercury is direct but still in the shadow zone. Effects of retrograde linger. Proceed with caution before the shadow completely clears on Sept 10.";
+    }
+  }
+  
+  document.getElementById('phase-title').innerText = title;
+  document.getElementById('phase-desc').innerText = desc;
+  document.getElementById('footer-info').innerText = retrogradeInfo;
+</script>
+
+</body>
+</html>
